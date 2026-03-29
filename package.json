@@ -1,6 +1,6 @@
 {
   "name": "handset",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A frameless mobile-viewport browser window for demos",
   "main": "src/main.js",
   "bin": {
@@ -9,7 +9,14 @@
   "scripts": {
     "start": "node bin/cli.js"
   },
-  "keywords": ["electron", "mobile", "demo", "browser", "viewport", "handset"],
+  "keywords": [
+    "electron",
+    "mobile",
+    "demo",
+    "browser",
+    "viewport",
+    "handset"
+  ],
   "author": "Jordan Neill",
   "license": "MIT",
   "repository": {

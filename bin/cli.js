@@ -4,10 +4,12 @@ const { spawn, execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
+// Find the electron module directory regardless of hoisting
+const electronMod = path.dirname(require.resolve('electron/package.json'));
+
 // On macOS, rename Electron.app to Handset.app and patch Info.plist
 // so the dock and menu bar both show "Handset"
 if (process.platform === 'darwin') {
-  const electronMod = path.join(__dirname, '..', 'node_modules', 'electron');
   const distDir = path.join(electronMod, 'dist');
   const electronApp = path.join(distDir, 'Electron.app');
   const handsetApp = path.join(distDir, 'Handset.app');
