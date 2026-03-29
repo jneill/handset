@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handset</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="drag-region"></div>
+  <webview id="webview" allowpopups></webview>
+
+  <div id="url-overlay" class="overlay hidden">
+    <div class="overlay-box">
+      <label for="url-input">Enter URL</label>
+      <input type="url" id="url-input" placeholder="https://example.com" spellcheck="false">
+      <div class="overlay-buttons">
+        <button id="url-cancel">Cancel</button>
+        <button id="url-ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

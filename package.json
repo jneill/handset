@@ -1,0 +1,36 @@
+{
+  "name": "handset",
+  "version": "1.0.0",
+  "description": "A frameless mobile-viewport browser window for demos",
+  "main": "src/main.js",
+  "bin": {
+    "handset": "./bin/cli.js"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": ["electron", "mobile", "demo", "browser", "viewport", "handset"],
+  "author": "Jordan Neill",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jneill/handset.git"
+  },
+  "homepage": "https://github.com/jneill/handset#readme",
+  "bugs": {
+    "url": "https://github.com/jneill/handset/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "electron": "^35.0.0",
+    "electron-store": "^10.0.0"
+  }
+}
