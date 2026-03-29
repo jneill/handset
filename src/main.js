@@ -1,6 +1,8 @@
 const { app, BrowserWindow, Menu, session, ipcMain, shell } = require('electron');
 const path = require('path');
 
+const ICON_PATH = path.join(__dirname, '..', 'assets', 'icon.png');
+
 const MOBILE_UA =
   'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) ' +
   'AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1';
@@ -25,6 +27,7 @@ function createWindow() {
     resizable: true,
     alwaysOnTop: true,
     backgroundColor: '#000000',
+    icon: ICON_PATH,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -162,6 +165,8 @@ ipcMain.handle('open-external', (_event, url) => {
 });
 
 // App lifecycle
+app.setName('Handset');
+
 app.whenReady().then(async () => {
   await initStore();
   session.defaultSession.setUserAgent(MOBILE_UA);

@@ -7,7 +7,7 @@
     "handset": "./bin/cli.js"
   },
   "scripts": {
-    "start": "electron ."
+    "start": "node bin/cli.js"
   },
   "keywords": ["electron", "mobile", "demo", "browser", "viewport", "handset"],
   "author": "Jordan Neill",
@@ -26,6 +26,8 @@
   "files": [
     "bin/",
     "src/",
+    "assets/icon.png",
+    "assets/icon.icns",
     "README.md",
     "LICENSE"
   ],
