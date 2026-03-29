@@ -3,10 +3,6 @@ const path = require('path');
 
 const ICON_PATH = path.join(__dirname, '..', 'assets', 'icon.png');
 
-const MOBILE_UA =
-  'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) ' +
-  'AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1';
-
 let win;
 let store;
 
@@ -169,7 +165,6 @@ app.setName('Handset');
 
 app.whenReady().then(async () => {
   await initStore();
-  session.defaultSession.setUserAgent(MOBILE_UA);
   createWindow();
 });
 
