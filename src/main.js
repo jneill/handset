@@ -4,16 +4,6 @@ const path = require('path');
 const ICON_PATH = path.join(__dirname, '..', 'assets', 'icon.png');
 
 let win;
-let store;
-
-async function initStore() {
-  const Store = (await import('electron-store')).default;
-  store = new Store({
-    defaults: {
-      url: ''
-    }
-  });
-}
 
 function createWindow() {
   win = new BrowserWindow({
@@ -120,7 +110,7 @@ function buildMenu() {
   Menu.setApplicationMenu(menu);
 }
 
-// Resolve initial URL: CLI arg > stored URL > empty (prompt)
+// Resolve initial URL: CLI arg or empty (prompt)
 function getInitialUrl() {
   const cliUrl = process.env.HANDSET_URL;
   if (cliUrl) {
@@ -128,10 +118,9 @@ function getInitialUrl() {
     if (!/^https?:\/\//i.test(url)) {
       url = url.includes('localhost') ? `http://${url}` : `https://${url}`;
     }
-    store.set('url', url);
     return url;
   }
-  return store.get('url');
+  return '';
 }
 
 // IPC handlers
@@ -139,8 +128,7 @@ ipcMain.handle('get-current-url', () => {
   return getInitialUrl();
 });
 
-ipcMain.handle('set-url', (_event, url) => {
-  store.set('url', url);
+ipcMain.handle('set-url', () => {
   return true;
 });
 
@@ -163,8 +151,7 @@ ipcMain.handle('open-external', (_event, url) => {
 // App lifecycle
 app.setName('Handset');
 
-app.whenReady().then(async () => {
-  await initStore();
+app.whenReady().then(() => {
   createWindow();
 });
 

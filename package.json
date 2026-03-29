@@ -39,7 +39,6 @@
     "LICENSE"
   ],
   "dependencies": {
-    "electron": "^35.0.0",
-    "electron-store": "^10.0.0"
+    "electron": "^35.0.0"
   }
 }
