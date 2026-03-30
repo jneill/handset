@@ -1,6 +1,6 @@
 {
   "name": "handset",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A frameless mobile-viewport browser window for demos",
   "main": "src/main.js",
   "bin": {
